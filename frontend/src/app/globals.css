@@ -1,0 +1,85 @@
+:root {
+  --bg: #f7f8f9; --surface: #fff; --ink: #15181c; --muted: #6b7280; --line: #e3e6ea;
+  --accent: #1e3a6b; --low: #0f7a4d; --moderate: #8a6500; --high: #b45309; --critical: #ab2626;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink);
+  font: 15px/1.6 ui-sans-serif, -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 880px; margin: 0 auto; padding: 36px 20px 90px; }
+
+h1 { margin: 0 0 6px; font-size: 24px; letter-spacing: -0.01em; }
+h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted);
+  margin: 28px 0 10px; }
+h3 { margin: 0 0 4px; font-size: 16px; }
+h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted);
+  margin: 20px 0 8px; }
+.sub { margin: 0 0 6px; color: var(--muted); max-width: 60ch; }
+.muted { color: var(--muted); font-size: 13px; margin: 3px 0; }
+
+.matrix { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0 8px; }
+.bucket { border: 1px solid var(--line); border-radius: 9px; padding: 14px; background: var(--surface);
+  border-top-width: 3px; }
+.bucket.low { border-top-color: var(--low); }
+.bucket.moderate { border-top-color: var(--moderate); }
+.bucket.high { border-top-color: var(--high); }
+.bucket.critical { border-top-color: var(--critical); }
+.bucket .count { font-size: 22px; font-weight: 600; }
+.bucket label { display: block; font-size: 12px; color: var(--muted); text-transform: capitalize; }
+.bucket ul { margin: 8px 0 0; padding-left: 15px; }
+.bucket li { font-size: 12px; color: var(--muted); }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 9px;
+  padding: 16px; margin-bottom: 10px; }
+.card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.right { text-align: right; }
+.right label { display: block; font-size: 11px; }
+
+.score { font-size: 26px; font-weight: 600; }
+.score.low, .low { color: var(--low); }
+.score.moderate, .moderate { color: var(--moderate); }
+.score.high, .high { color: var(--high); }
+.score.critical, .critical { color: var(--critical); }
+
+.pill { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px; }
+.pill.warn { background: #fcf2e0; color: var(--high); }
+
+button { padding: 7px 14px; border-radius: 6px; border: 1px solid var(--accent);
+  background: var(--accent); color: #fff; font: inherit; font-size: 14px; cursor: pointer; }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+button.ghost { background: none; color: var(--muted); border-color: var(--line); }
+.actions { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.actions.sticky { position: sticky; bottom: 16px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 9px; padding: 12px; margin-top: 18px; }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 9px;
+  padding: 20px; margin-top: 16px; }
+.working { background: #f4f6f9; border-radius: 8px; padding: 14px; margin: 10px 0; }
+.working p { margin: 4px 0; font-size: 14px; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); font-size: 13px; }
+th { color: var(--muted); font-weight: 600; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; width: 70px; }
+td.bar { width: 160px; }
+td.bar span { display: block; height: 7px; border-radius: 4px; background: var(--accent); opacity: 0.75; }
+
+.progress { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+.question { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.question:last-child { border-bottom: none; }
+.question .text { margin: 0 0 8px; font-size: 14px; }
+.options { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+.options label { display: flex; align-items: center; gap: 6px; padding: 6px 12px;
+  border: 1px solid var(--line); border-radius: 7px; font-size: 13px; cursor: pointer; }
+.options label.on { border-color: var(--accent); background: #eef2f8; }
+.note { width: 100%; padding: 7px 10px; border: 1px solid var(--line); border-radius: 6px;
+  font: inherit; font-size: 13px; }
+
+.banner { padding: 10px 14px; border-radius: 6px; font-size: 14px; margin-bottom: 16px; }
+.banner.ok { background: #e4f3ec; color: var(--low); }
+.banner.bad { background: #fbe9e9; color: var(--critical); }
+
+@media (max-width: 640px) {
+  .matrix { grid-template-columns: repeat(2, 1fr); }
+  .card-head { flex-direction: column; }
+  .right { text-align: left; }
+}
